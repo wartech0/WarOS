@@ -2,3 +2,5 @@
 isodir
 sysroot
 .vscode
+*.iso.lock
+*.sym
