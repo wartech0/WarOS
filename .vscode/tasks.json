@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "bash -i -c ./build.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Headers",
+            "type": "shell",
+            "command": "bash -i -c ./headers.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Configure",
+            "type": "shell",
+            "command": "bash -i -c ./config.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Iso",
+            "type": "shell",
+            "command": "bash -i -c ./iso.sh",
+            "problemMatcher": [],
+        },
+        {
+            "label": "QEmu",
+            "type": "shell",
+            "command": "qemu-system-i386 -s -S -cdrom waros.iso",
+            "problemMatcher": [],
+            "dependsOn": ["Build Iso"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "bash -i -c ./clean.sh",
+            "problemMatcher": []
+        }
+    ]
+}
